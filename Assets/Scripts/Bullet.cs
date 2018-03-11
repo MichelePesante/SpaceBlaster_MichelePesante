@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
+	public delegate void BulletEvent(Bullet bullet);
+
 	public BulletEvent OnShoot;
 	public BulletEvent OnSelfDestroy;
 
 	public State CurrentState = State.InPool;
 
 	private void OnCollisionEnter (Collision collision) {
-		if (CurrentState == State.InUse)
+		if (CurrentState == State.InUse && collision.gameObject.tag != "Background")
 			DestroyMe();
 	}
 
@@ -48,8 +50,6 @@ public class Bullet : MonoBehaviour {
 	#endregion
 
 	#region Dichiarazione tipi
-
-	public delegate void BulletEvent(Bullet bullet);
 
 	public enum State {
 		InPool,
