@@ -5,22 +5,47 @@ using UnityEngine;
 public class ShootInput : MonoBehaviour {
 
 	[Header("Shoot Settings")]
-	public KeyCode ShootInputKey = KeyCode.J; 
-	public float ShootForce = 0f;
+	public KeyCode PlayerShootInputKey = KeyCode.J;
+    public float EnemyShootAttackSpeed;
+	public float ShootForce;
 	public Transform ShootStartingPosition;
 
+    private float enemyTimer;
 	private BulletPoolManager bulletManager;
+    private PlayerMovement player;
+    private Enemy enemy;
 
 	// Use this for initialization
 	void Start () {
 		bulletManager = FindObjectOfType<BulletPoolManager> ();
+        if (GetComponent<PlayerMovement>() != null)
+        {
+            player = GetComponent<PlayerMovement>();
+        }
+        else if (GetComponent<Enemy>() != null)
+        {
+            enemy = GetComponent<Enemy>();
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (ShootInputKey)) {
-			Shoot ();
-		}
+        if (player)
+        {
+            if (Input.GetKeyDown(PlayerShootInputKey))
+            {
+                Shoot();
+            }
+        }
+        if (enemy)
+        {
+            enemyTimer += Time.deltaTime;
+            if (enemyTimer >= EnemyShootAttackSpeed)
+            {
+                Shoot();
+                enemyTimer = 0f;
+            }
+        }
 	}
 
 	void Shoot () {
