@@ -15,4 +15,12 @@ public class Enemy : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.GetComponent<Bullet>() != null)
+        {
+            GetComponent<EnemyBehaviour>().EnemyDeath();
+        }
+    }
 }

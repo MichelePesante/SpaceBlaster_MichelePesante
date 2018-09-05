@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StaticShooterEnemy : EnemyBehaviour {
+public class DynamicShooterEnemy : EnemyBehaviour {
 
     private bool isGoingRight = true;
+    private Player playerToFollow;
 
-	void Update () {
+    void Start()
+    {
+        playerToFollow = FindObjectOfType<Player>();
+        EnemySpawn();
+    }
+
+    void Update()
+    {
         PersonalMovement();
     }
 
@@ -14,6 +22,7 @@ public class StaticShooterEnemy : EnemyBehaviour {
     {
         if (isAlive)
         {
+            transform.LookAt(playerToFollow.transform);
             if (canMove)
             {
                 if (isGoingRight)

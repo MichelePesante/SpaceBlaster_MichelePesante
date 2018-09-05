@@ -12,15 +12,15 @@ public class ShootInput : MonoBehaviour {
 
     private float enemyTimer;
 	private BulletPoolManager bulletManager;
-    private PlayerMovement player;
+    private Player player;
     private Enemy enemy;
 
 	// Use this for initialization
 	void Start () {
 		bulletManager = FindObjectOfType<BulletPoolManager> ();
-        if (GetComponent<PlayerMovement>() != null)
+        if (GetComponent<Player>() != null)
         {
-            player = GetComponent<PlayerMovement>();
+            player = GetComponent<Player>();
         }
         else if (GetComponent<Enemy>() != null)
         {
