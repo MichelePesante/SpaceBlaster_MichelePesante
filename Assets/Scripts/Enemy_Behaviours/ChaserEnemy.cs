@@ -15,6 +15,7 @@ public class ChaserEnemy : EnemyBehaviour {
     void Update()
     {
         PersonalMovement();
+        EnemyRespawn();
     }
 
     private void PersonalMovement()

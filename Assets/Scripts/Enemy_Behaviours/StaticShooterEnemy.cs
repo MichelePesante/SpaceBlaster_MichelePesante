@@ -8,6 +8,7 @@ public class StaticShooterEnemy : EnemyBehaviour {
 
 	void Update () {
         PersonalMovement();
+        EnemyRespawn();
     }
 
     private void PersonalMovement()

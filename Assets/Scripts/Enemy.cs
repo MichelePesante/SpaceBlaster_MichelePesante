@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour {
     {
         if (collision.gameObject.GetComponent<Bullet>() != null)
         {
-            GetComponent<EnemyBehaviour>().EnemyDeath();
+            PersonalBehaviour.EnemyDeath();
         }
     }
 }

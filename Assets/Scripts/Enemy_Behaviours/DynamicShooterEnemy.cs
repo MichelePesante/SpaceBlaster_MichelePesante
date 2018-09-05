@@ -16,6 +16,7 @@ public class DynamicShooterEnemy : EnemyBehaviour {
     void Update()
     {
         PersonalMovement();
+        EnemyRespawn();
     }
 
     private void PersonalMovement()

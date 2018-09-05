@@ -7,6 +7,7 @@ public class EnemyBehaviour : MonoBehaviour {
 
     protected bool canMove;
     protected bool isAlive = true;
+    protected float respawnTimer = 0f;
     protected float minXPoint = -14f;
     protected float maxXPoint = 14f;
 
@@ -25,20 +26,30 @@ public class EnemyBehaviour : MonoBehaviour {
         transform.DOMoveZ(ArrivePoint.position.z, 2f);
         transform.DOMoveX(ArrivePoint.position.x + rng, 2f);
         canMove = true;
-        if (GetComponent<ShootInput>() != null)
-        {
-            GetComponent<ShootInput>().enabled = true;
-        }
     }
 
     public void EnemyDeath()
     {
         isAlive = false;
         transform.position = SpawnTransform.position;
-        transform.rotation = SpawnTransform.rotation;
         if (GetComponent<ShootInput>() != null)
         {
             GetComponent<ShootInput>().enabled = false;
+        }
+    }
+
+    public void EnemyRespawn()
+    {
+        respawnTimer += Time.deltaTime;
+        if (respawnTimer >= 2f && !isAlive)
+        {
+            EnemySpawn();
+            isAlive = true;
+            respawnTimer = 0f;
+        }
+        if (GetComponent<ShootInput>() != null)
+        {
+            GetComponent<ShootInput>().enabled = true;
         }
     }
 }
