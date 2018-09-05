@@ -14,11 +14,6 @@ public class EnemyBehaviour : MonoBehaviour {
     public Transform ArrivePoint;
     public Transform SpawnTransform;
 
-    void Awake()
-    {
-        SpawnTransform = transform;
-    }
-
     void Start()
     {
         EnemySpawn();
