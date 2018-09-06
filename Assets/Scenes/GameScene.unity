@@ -156,6 +156,10 @@ Prefab:
       propertyPath: m_Name
       value: InvisibleWallDown
       objectReference: {fileID: 0}
+    - target: {fileID: 1836424437870008, guid: 7c599cd7e13a7ad48b0975c47b604dde, type: 2}
+      propertyPath: m_TagString
+      value: Background
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c599cd7e13a7ad48b0975c47b604dde, type: 2}
   m_IsPrefabAsset: 0
@@ -241,6 +245,10 @@ Prefab:
     - target: {fileID: 4226084753350156, guid: 7c599cd7e13a7ad48b0975c47b604dde, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836424437870008, guid: 7c599cd7e13a7ad48b0975c47b604dde, type: 2}
+      propertyPath: m_TagString
+      value: Background
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c599cd7e13a7ad48b0975c47b604dde, type: 2}
@@ -599,7 +607,7 @@ GameObject:
   - component: {fileID: 1008395971}
   m_Layer: 0
   m_Name: MapLimits
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -730,6 +738,10 @@ Prefab:
       propertyPath: m_Name
       value: InvisibleWallUp
       objectReference: {fileID: 0}
+    - target: {fileID: 1836424437870008, guid: 7c599cd7e13a7ad48b0975c47b604dde, type: 2}
+      propertyPath: m_TagString
+      value: Background
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c599cd7e13a7ad48b0975c47b604dde, type: 2}
   m_IsPrefabAsset: 0
@@ -839,6 +851,10 @@ Prefab:
     - target: {fileID: 4226084753350156, guid: 7c599cd7e13a7ad48b0975c47b604dde, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836424437870008, guid: 7c599cd7e13a7ad48b0975c47b604dde, type: 2}
+      propertyPath: m_TagString
+      value: Background
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c599cd7e13a7ad48b0975c47b604dde, type: 2}

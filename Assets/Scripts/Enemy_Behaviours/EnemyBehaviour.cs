@@ -40,16 +40,19 @@ public class EnemyBehaviour : MonoBehaviour {
 
     public void EnemyRespawn()
     {
-        respawnTimer += Time.deltaTime;
-        if (respawnTimer >= 2f && !isAlive)
+        if (!isAlive)
         {
-            EnemySpawn();
-            isAlive = true;
-            respawnTimer = 0f;
-        }
-        if (GetComponent<ShootInput>() != null)
-        {
-            GetComponent<ShootInput>().enabled = true;
+            respawnTimer += Time.deltaTime;
+            if (respawnTimer >= 2f)
+            {
+                EnemySpawn();
+                isAlive = true;
+                respawnTimer = 0f;
+            }
+            if (GetComponent<ShootInput>() != null)
+            {
+                GetComponent<ShootInput>().enabled = true;
+            }
         }
     }
 }

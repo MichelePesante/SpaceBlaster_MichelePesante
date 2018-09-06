@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -16,8 +17,13 @@ public class Player : MonoBehaviour {
 		
 	}
 
-	void FixedUpdate () {
-		
+    void Update()
+    {
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -14f, 14f), transform.position.y, (Mathf.Clamp(transform.position.z, -2.5f, 12f)));
+    }
+
+    void FixedUpdate ()
+    {
 		// Up, Down.
 		if (Input.GetKey (ForwardInput)) {
 			transform.position += Vector3.forward * movementSpeed;
@@ -33,4 +39,17 @@ public class Player : MonoBehaviour {
 			transform.position += Vector3.right * movementSpeed;
 		}
 	}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag != "Background")
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
